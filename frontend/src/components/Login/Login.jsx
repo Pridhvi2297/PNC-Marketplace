@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { PiEyeDuotone, PiEyeClosedDuotone } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { server } from "../../server";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,6 +13,24 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    await axios
+      .post(
+        `${server}/user/login-user`,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        toast.success("Login Successfully!");
+        navigate("/");
+        window.location.reload(true);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
   };
 
   return (

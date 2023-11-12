@@ -2,6 +2,11 @@ import { React, useState } from "react";
 import { PiEyeDuotone, PiEyeClosedDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import {FcGoodDecision} from "react-icons/fc"
+import axios from "axios";
+import { server } from "../../server";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -17,6 +22,26 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+    const newForm = new FormData();
+
+    newForm.append("file", avatar);
+    newForm.append("name", name);
+    newForm.append("email", email);
+    newForm.append("password", password);
+    axios
+      .post(`${server}/user/create-user`, newForm, config)
+      .then((res) => {
+        toast.success(res.data.message);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setAvatar("");
+      })
+      .catch((error) => {
+        toast.error(error.response.data.message);
+      });
   };
 
   return (
