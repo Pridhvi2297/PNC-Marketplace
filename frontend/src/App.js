@@ -11,6 +11,7 @@ import {
   TodaysDealPage,
   FAQPage,
   ProductDetailsPage,
+  ProfilePage,
 } from "./routes/Routes.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -38,6 +39,12 @@ const App = () => {
         <Route path="/todaysDeals" element={<TodaysDealPage />} />
         <Route path="/faq" element={<FAQPage />} />
 
+        <Route
+          path="/profile"
+          element={
+              <ProfilePage />
+          }
+        />
 
       </Routes>
 

@@ -7,6 +7,7 @@ import BestSellersPage from "../pages/BestSellersPage";
 import TodaysDealPage from "../pages/TodaysDealPage";
 import FAQPage from '../pages/FAQPage';
 import ProductDetailsPage from "../pages/ProductDetailsPage";
+import ProfilePage from '../pages/ProfilePage';
 
 
 
@@ -20,4 +21,6 @@ export {
     TodaysDealPage,
     FAQPage,
     ProductDetailsPage,
+    ProfilePage,
+
 };
