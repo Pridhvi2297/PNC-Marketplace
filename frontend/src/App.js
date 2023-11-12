@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Store from "./redux/store.js";
 import { loadUser } from "./redux/actions/user.js";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 const App = () => {
   useEffect(() => {
@@ -42,10 +43,11 @@ const App = () => {
         <Route
           path="/profile"
           element={
+            <ProtectedRoute>
               <ProfilePage />
+            </ProtectedRoute>
           }
         />
-
       </Routes>
 
       <ToastContainer

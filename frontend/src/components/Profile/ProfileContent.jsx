@@ -443,7 +443,7 @@ const PaymentMethod = () => {
       <div className="w-full bg-white h-12 rounded-4 flex items-center px-3 shadow justify-between pr-10">
         <div className="flex items-center">
           <img
-            src="https://1000logos.net/wp-content/uploads/2021/11/VISA-logo.png"
+            src="https://cdn.visa.com/v2/assets/images/logos/visa/blue/logo.png"
             alt=""
             className="w-6 h-6"
           />

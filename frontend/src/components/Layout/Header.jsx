@@ -224,7 +224,7 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src="/Logo.png"
+                src="/logo192.png"
                 alt="pnc mart"
                 className="h-12 w-full mt-3 cursor-pointer"
               />
