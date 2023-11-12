@@ -8,6 +8,9 @@ import TodaysDealPage from "../pages/TodaysDealPage";
 import FAQPage from '../pages/FAQPage';
 import ProductDetailsPage from "../pages/ProductDetailsPage";
 import ProfilePage from '../pages/ProfilePage';
+import CheckoutPage from '../pages/CheckoutPage';
+import ShopCreatePage from "../pages/ShopCreatePage"
+import SellerActivationPage from "../pages/SellerActivationPage"
 
 
 
@@ -22,5 +25,8 @@ export {
     FAQPage,
     ProductDetailsPage,
     ProfilePage,
+    CheckoutPage,
+    ShopCreatePage,
+    SellerActivationPage,
 
 };
