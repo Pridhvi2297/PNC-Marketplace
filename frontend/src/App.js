@@ -24,6 +24,8 @@ import { loadSeller, loadUser } from "./redux/actions/user.js";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { ShopHomePage } from "./ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
+import { ShopDashboardPage } from "./routes/ShopRoutes.js";
+
 
 const App = () => {
   useEffect(() => {
@@ -77,6 +79,14 @@ const App = () => {
           element={
             <SellerProtectedRoute>
               <ShopHomePage />
+            </SellerProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <SellerProtectedRoute>
+              <ShopDashboardPage />
             </SellerProtectedRoute>
           }
         />
