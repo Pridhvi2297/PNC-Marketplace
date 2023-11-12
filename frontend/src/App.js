@@ -10,6 +10,7 @@ import {
   BestSellersPage,
   TodaysDealPage,
   FAQPage,
+  ProductDetailsPage,
 } from "./routes/Routes.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -31,6 +32,7 @@ const App = () => {
           path="/activation/:activation_token"
           element={<ActivationPage />}
         />
+        <Route path="/product/:name" element={<ProductDetailsPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/best-sellers" element={<BestSellersPage />} />
         <Route path="/todaysDeals" element={<TodaysDealPage />} />
