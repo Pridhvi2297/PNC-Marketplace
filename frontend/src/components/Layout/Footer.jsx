@@ -17,7 +17,7 @@ const Footer = () => {
     <div className="bg-black text-white">
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4 py-10">
         <div className="lg:w-1/3">
-          <img src="/logo.png" alt="Logo" className="w-72 h-[5.5rem] mb-6" />
+          <img src="/logo192.png" alt="Logo" className="w-72 h-[5.5rem] mb-6" />
           <p className="text-white text-sm mb-6">
             Get the best products that bring happiness to your life.
           </p>
