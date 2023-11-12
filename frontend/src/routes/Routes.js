@@ -3,7 +3,7 @@ import SignupPage from "../pages/SignupPage";
 import ActivationPage from "../pages/ActivationPage";
 import HomePage from "../pages/HomePage";
 import ProductsPage from "../pages/ProductsPage";
-
+import BestSellersPage from "../pages/BestSellersPage";
 
 
 export {
@@ -11,5 +11,6 @@ export {
     SignupPage,
     ActivationPage,
     HomePage,
-    ProductsPage
+    ProductsPage,
+    BestSellersPage
 };
