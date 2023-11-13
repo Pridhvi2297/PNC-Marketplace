@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { categoriesData } from "../../static/data";
 import { FcGallery } from "react-icons/fc";
 import { toast } from "react-toastify";
+import { createProduct } from "../../redux/actions/product";
 
 const CreateProduct = () => {
   const { seller } = useSelector((state) => state.seller);
+  const { success, error } = useSelector((state) => state.products);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -15,10 +17,19 @@ const CreateProduct = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState("");
-  const [originalPrice, setOriginalPrice] = useState();
-  const [discountPrice, setDiscountPrice] = useState();
-  const [stock, setStock] = useState();
+  const [originalPrice, setOriginalPrice] = useState(0);
+  const [discountPrice, setDiscountPrice] = useState(0);
+  const [stock, setStock] = useState(0);
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+    if (success) {
+      toast.success("Product created successfully!");
+      navigate("/dashboard");
+    }
+  }, [dispatch, error, success]);
 
   const handleImageChange = (e) => {
     e.preventDefault();
@@ -43,7 +54,7 @@ const CreateProduct = () => {
     newForm.append("discountPrice", discountPrice);
     newForm.append("stock", stock);
     newForm.append("shopId", seller._id);
-    dispatch(CreateProduct(newForm));
+    dispatch(createProduct(newForm));
   };
 
   return (
@@ -79,7 +90,9 @@ const CreateProduct = () => {
             className="mt-2 appearance-none block w-full pt-2 px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Enter your product description..."
-          > </textarea>
+          >
+            {" "}
+          </textarea>
         </div>
         <br />
         <div>
