@@ -48,7 +48,7 @@ const DashboardHeader = () => {
               className="mx-5 cursor-pointer"
             />
           </Link>
-          <Link to={`shop/${seller._id}`}>
+          <Link to={`/shop/${seller._id}`}>
             <img
               src={`${backend_url}${seller.avatar}`}
               alt="shop img"
