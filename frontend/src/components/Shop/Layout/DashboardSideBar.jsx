@@ -16,14 +16,21 @@ import { PiTicketDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const DashboardSideBar = ({ active }) => {
+  const getLinkStyle = (index) => ({
+    color: active === index ? "crimson" : "#555",
+  });
   return (
     <div className="w-full h-[89vh] bg-white shadow-sm overflow-y-scroll sticky top-0 left-0 z-10">
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard" className="w-full flex items-center">
-          <FcHome size={30} color={`${active === 1 ? "crimson" : "#555"}`} />
+        <Link
+          to="/dashboard"
+          className="w-full flex items-center"
+          style={getLinkStyle(1)}
+        >
+          <FcHome size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 1 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400] 
+            ${getLinkStyle(1).color}
             }`}
           >
             Dashboard
@@ -32,11 +39,15 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-orders" className="w-full flex items-center">
-          <FcPackage size={30} color={`${active === 2 ? "crimson" : "#555"}`} />
+        <Link
+          to="/dashboard-orders"
+          className="w-full flex items-center"
+          style={getLinkStyle(2)}
+        >
+          <FcPackage size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 2 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400] $
+            ${getLinkStyle(2).color}
             }`}
           >
             All Orders
@@ -45,11 +56,15 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-products" className="w-full flex items-center">
-          <FcPaid size={30} color={`${active === 3 ? "crimson" : "#555"}`} />
+        <Link
+          to="/dashboard-products"
+          className="w-full flex items-center"
+          style={getLinkStyle(3)}
+        >
+          <FcPaid size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 3 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400] 
+            ${getLinkStyle(3).color}
             }`}
           >
             All Products
@@ -61,11 +76,9 @@ const DashboardSideBar = ({ active }) => {
         <Link
           to="/dashboard-create-product"
           className="w-full flex items-center"
+          style={getLinkStyle(4)}
         >
-          <FcAddDatabase
-            size={30}
-            color={`${active === 4 ? "crimson" : "#555"}`}
-          />
+          <FcAddDatabase size={30} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 4 ? "text-[crimson]" : "text-[#555]"
@@ -77,14 +90,15 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-event" className="w-full flex items-center">
-          <FcCalendar
-            size={30}
-            color={`${active === 5 ? "crimson" : "#555"}`}
-          />
+        <Link
+          to="/dashboard-event"
+          className="w-full flex items-center"
+          style={getLinkStyle(5)}
+        >
+          <FcCalendar size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 5 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400]
+            ${getLinkStyle(5).color}
             }`}
           >
             All Events
@@ -93,14 +107,15 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-create-event" className="w-full flex items-center">
-          <FcOvertime
-            size={30}
-            color={`${active === 6 ? "crimson" : "#555"}`}
-          />
+        <Link
+          to="/dashboard-create-event"
+          className="w-full flex items-center"
+          style={getLinkStyle(6)}
+        >
+          <FcOvertime size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 6 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400]
+            ${getLinkStyle(6).color}
             }`}
           >
             Create Event
@@ -112,11 +127,13 @@ const DashboardSideBar = ({ active }) => {
         <Link
           to="/dashboard-withdraw-event"
           className="w-full flex items-center"
+          style={getLinkStyle(7)}
         >
-          <FcLeave size={30} color={`${active === 7 ? "crimson" : "#555"}`} />
+          <FcLeave size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 7 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400]
+            ${getLinkStyle(7).color}
+
             }`}
           >
             Withdraw Event
@@ -128,14 +145,13 @@ const DashboardSideBar = ({ active }) => {
         <Link
           to="/dashboard-withdraw-money"
           className="w-full flex items-center"
+          style={getLinkStyle(8)}
         >
-          <FcMoneyTransfer
-            size={30}
-            color={`${active === 8 ? "crimson" : "#555"}`}
-          />
+          <FcMoneyTransfer size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 8 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400]
+            ${getLinkStyle(8).color}
+
             }`}
           >
             Withdraw Money
@@ -144,14 +160,16 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-coupouns" className="w-full flex items-center">
-          <PiTicketDuotone
-            size={30}
-            color={`${active === 9 ? "crimson" : "#555"}`}
-          />
+        <Link
+          to="/dashboard-coupouns"
+          className="w-full flex items-center"
+          style={getLinkStyle(9)}
+        >
+          <PiTicketDuotone size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 9 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400]
+            ${getLinkStyle(9).color}
+
             }`}
           >
             Discout Codes
@@ -160,11 +178,16 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-refunds" className="w-full flex items-center">
-          <FcUndo size={30} color={`${active === 10 ? "crimson" : "#555"}`} />
+        <Link
+          to="/dashboard-refunds"
+          className="w-full flex items-center"
+          style={getLinkStyle(10)}
+        >
+          <FcUndo size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 10 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400]
+            ${getLinkStyle(10).color}
+
             }`}
           >
             Refunds
@@ -173,14 +196,16 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-settings" className="w-full flex items-center">
-          <FcEngineering
-            size={30}
-            color={`${active === 11 ? "crimson" : "#555"}`}
-          />
+        <Link
+          to="/dashboard-settings"
+          className="w-full flex items-center"
+          style={getLinkStyle(11)}
+        >
+          <FcEngineering size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 11 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400]
+            ${getLinkStyle(11).color}
+
             }`}
           >
             Settings
@@ -188,18 +213,13 @@ const DashboardSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
-        <Link
-          to="/dashboard-inbox"
-          className="w-full flex items-center"
-        >
-          <FcVoicePresentation
-            size={30}
-            color={`${active === 12 ? "crimson" : "#555"}`}
-          />
+      <div className="w-full flex items-center p-4" style={getLinkStyle(12)}>
+        <Link to="/dashboard-inbox" className="w-full flex items-center">
+          <FcVoicePresentation size={30} />
           <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 12 ? "text-[crimson]" : "text-[#555]"
+            className={`hidden 800px:block pl-2 text-[18px] font-[400]
+            ${getLinkStyle(12).color}
+
             }`}
           >
             Shop Inbox
