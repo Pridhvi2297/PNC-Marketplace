@@ -37,4 +37,46 @@ router.post(
   })
 );
 
+router.get(
+  "/get-all-events/:id",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const events = await Event.find({ shopId: req.params.id });
+
+      res.status(201).json({
+        success: true,
+        events,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error, 400));
+    }
+  })
+);
+
+// delete product of a shop
+router.delete(
+  "/delete-shop-event/:id",
+  isSeller,
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+
+      const eventId = req.params.id;
+
+      const event = await Event.findByIdAndDelete(eventId);
+
+      if (!event) {
+        return next(new ErrorHandler("Event is not found with this id", 404));
+      }
+
+      res.status(201).json({
+        success: true,
+        message: "Event Deleted successfully!",
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error, 400));
+    }
+  })
+);
+
+
 module.exports = router;
