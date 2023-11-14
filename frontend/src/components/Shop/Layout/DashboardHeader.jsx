@@ -17,21 +17,21 @@ const DashboardHeader = () => {
       </div>
       <div className="flex items-center">
         <div className="flex items-center mr-4">
-          <Link to="/dashboards/coupons" className="800px:block hidden">
+          <Link to="/dashboard-coupon" className="800px:block hidden">
             <PiTicketDuotone
               color="#555"
               size={30}
               className="mx-5 cursor-pointer"
             />
           </Link>
-          <Link to="/dashboards-events" className="800px:block hidden">
+          <Link to="/dashboard-event" className="800px:block hidden">
             <FcCalendar
               color="#555"
               size={30}
               className="mx-5 cursor-pointer"
             />
           </Link>
-          <Link to="/dashboards-products" className="800px:block hidden">
+          <Link to="/dashboard-products" className="800px:block hidden">
             <FcPaid
               color="#555"
               size={30}

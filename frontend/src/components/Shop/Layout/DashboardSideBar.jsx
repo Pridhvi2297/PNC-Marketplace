@@ -143,7 +143,7 @@ const DashboardSideBar = ({ active }) => {
 
       <div className="w-full flex items-center p-4">
         <Link
-          to="/dashboard-coupouns"
+          to="/dashboard-coupon"
           className="w-full flex items-center"
           style={getLinkStyle(8)}
         >

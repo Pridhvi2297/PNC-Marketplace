@@ -3,6 +3,7 @@ import ShopCreateProduct from "../pages/Shop/ShopCreateProduct"
 import ShopProducts from "../pages/Shop/ShopProducts"
 import ShopCreateEvent from "../pages/Shop/ShopCreateEvent"
 import ShopEvent from "../pages/Shop/ShopEvent"
+import ShopCoupons from "../pages/Shop/ShopCoupons"
 
 
 export {
@@ -10,5 +11,6 @@ export {
     ShopCreateProduct,
     ShopProducts,
     ShopCreateEvent,
-    ShopEvent
+    ShopEvent,
+    ShopCoupons
 }
