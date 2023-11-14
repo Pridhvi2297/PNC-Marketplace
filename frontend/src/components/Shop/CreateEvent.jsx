@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { categoriesData } from "../../static/data";
 import { FcGallery } from "react-icons/fc";
 import { toast } from "react-toastify";
-import { createProduct } from "../../redux/actions/product";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { createEvent } from "../../redux/actions/event";
 
 const CreateEvent = () => {
   const { seller } = useSelector((state) => state.seller);
-  const { success, error } = useSelector((state) => state.products);
+  const { success, error } = useSelector((state) => state.event);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -56,7 +56,7 @@ const CreateEvent = () => {
     ? new Date(startDate.getTime() + 3 * 24 * 60 * 60 * 1000)
         .toISOString()
         .slice(0, 10)
-    : today;
+    : "";
 
   useEffect(() => {
     if (error) {
@@ -92,7 +92,9 @@ const CreateEvent = () => {
     newForm.append("discountPrice", discountPrice);
     newForm.append("stock", stock);
     newForm.append("shopId", seller._id);
-    dispatch(createProduct(newForm));
+    newForm.append("start_Date", startDate.toISOString());
+    newForm.append("end_Date", endDate.toISOString());
+    dispatch(createEvent(newForm));
   };
 
   return (
