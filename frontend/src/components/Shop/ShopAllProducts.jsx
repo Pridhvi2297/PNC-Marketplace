@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getAllProductsShop } from "../../redux/actions/product";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-import { Visibility, Delete } from "@mui/icons-material";
-import CircularProgress from "@mui/material/CircularProgress";
-import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid';
+import { Delete } from "@mui/icons-material";
+import { DataGrid } from '@mui/x-data-grid';
 import { Loader } from "react-feather";
+import {AiOutlineEye} from "react-icons/ai";
 
 
 const ShopAllProducts = () => {
@@ -28,20 +28,28 @@ const ShopAllProducts = () => {
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
     { field: "name", headerName: "Name", minWidth: 180, flex: 1.4 },
     { field: "price", headerName: "Price", minWidth: 100, flex: 0.6 },
-    { field: "stock", headerName: "Stock", type: "number", minWidth: 80, flex: 0.5 },
-    { field: "sold_out", headerName: "Sold out", type: "number", minWidth: 130, flex: 0.6 },
+    { field: "Stock", headerName: "Stock", type: "number", minWidth: 80, flex: 0.5 },
+    { field: "Sold_out", headerName: "Sold out", type: "number", minWidth: 130, flex: 0.6 },
     {
-      field: "preview",
+      field: "Preview",
       flex: 0.8,
       minWidth: 100,
       headerName: "",
       type: "number",
       sortable: false,
-      renderCell: ({ row }) => (
-        <Link to={`/product/${row.id}`}>
-          <Button><Visibility /></Button>
-        </Link>
-      ),
+      renderCell: (params) => {
+        const d = params.row.name;
+        const product_name = d.replace(/\s+/g, "-");
+        return (
+          <>
+            <Link to={`/product/${product_name}`}>
+              <Button>
+                <AiOutlineEye size={20} />
+              </Button>
+            </Link>
+          </>
+        );
+      },
     },
     {
       field: "Delete",
@@ -64,7 +72,7 @@ const ShopAllProducts = () => {
         name: item.name,
         price: "US$ " + item.discountPrice,
         Stock: item.stock,
-        sold: item?.sold_out,
+        Sold_out: 10,
       });
     });
 
