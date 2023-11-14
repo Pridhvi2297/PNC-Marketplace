@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsShop } from "../../redux/actions/product";
+import { deleteProduct, getAllProductsShop } from "../../redux/actions/product";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Visibility, Delete } from "@mui/icons-material";
 import CircularProgress from "@mui/material/CircularProgress";
 import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid';
+import { Loader } from "react-feather";
+
 
 const ShopAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
@@ -16,6 +18,11 @@ const ShopAllProducts = () => {
   useEffect(() => {
     dispatch(getAllProductsShop(seller._id));
   }, [dispatch, seller._id]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteProduct(id));
+    window.location.reload();
+  };
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
@@ -37,47 +44,47 @@ const ShopAllProducts = () => {
       ),
     },
     {
-      field: "delete",
+      field: "Delete",
       flex: 0.8,
       minWidth: 120,
       headerName: "",
       type: "number",
       sortable: false,
-      renderCell: () => (
-        <Button><Delete /></Button>
+      renderCell: (params) => (
+        <Button onClick={() => handleDelete(params.id)}><Delete /></Button>
       ),
     },
   ];
+  const row = [];
 
-  const rows = products?.map(({ _id, name, discountPrice, stock, sold_out }) => ({
-    id: _id,
-    name,
-    price: `US$ ${discountPrice}`,
-    stock,
-    sold_out,
-  })) || [];
+  products &&
+    products.forEach((item) => {
+      row.push({
+        id: item._id,
+        name: item.name,
+        price: "US$ " + item.discountPrice,
+        Stock: item.stock,
+        sold: item?.sold_out,
+      });
+    });
 
-  return (
-    <>
-      {isLoading ? (
-        <CircularProgress />
-      ) : (
-        <div className="w-full mx-8 pt-1 mt-10 bg-white">
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            autoHeight
-            components={{
-              Toolbar: GridToolbarContainer,
-              Export: GridToolbarExport,
-            }}
-          />
-        </div>
-      )}
-    </>
-  );
-};
-
-export default ShopAllProducts;
+    return (
+      <>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="w-full mx-8 pt-1 mt-10 bg-white">
+            <DataGrid
+              rows={row}
+              columns={columns}
+              pageSize={10}
+              disableSelectionOnClick
+              autoHeight
+            />
+          </div>
+        )}
+      </>
+    );
+  };
+  
+  export default ShopAllProducts;
