@@ -59,8 +59,22 @@ router.delete(
   isSeller,
   catchAsyncErrors(async (req, res, next) => {
     try {
-
       const eventId = req.params.id;
+
+      const eventData = await Event.findById(eventId);
+
+      eventData.images.forEach((imageUrl) => {
+        const filename = imageUrl;
+        const filePath = `uploads/${filename}`;
+
+        console.log("File path:", filePath);
+
+        fs.unlink(filePath, (err) => {
+          if (err) {
+            console.log(err);
+          }
+        });
+      });
 
       const event = await Event.findByIdAndDelete(eventId);
 
@@ -77,6 +91,5 @@ router.delete(
     }
   })
 );
-
 
 module.exports = router;

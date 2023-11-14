@@ -125,32 +125,14 @@ const DashboardSideBar = ({ active }) => {
 
       <div className="w-full flex items-center p-4">
         <Link
-          to="/dashboard-withdraw-event"
-          className="w-full flex items-center"
-          style={getLinkStyle(7)}
-        >
-          <FcLeave size={30} />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400]
-            ${getLinkStyle(7).color}
-
-            }`}
-          >
-            Withdraw Event
-          </h5>
-        </Link>
-      </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link
           to="/dashboard-withdraw-money"
           className="w-full flex items-center"
-          style={getLinkStyle(8)}
+          style={getLinkStyle(7)}
         >
           <FcMoneyTransfer size={30} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400]
-            ${getLinkStyle(8).color}
+            ${getLinkStyle(7).color}
 
             }`}
           >
@@ -163,12 +145,12 @@ const DashboardSideBar = ({ active }) => {
         <Link
           to="/dashboard-coupouns"
           className="w-full flex items-center"
-          style={getLinkStyle(9)}
+          style={getLinkStyle(8)}
         >
           <PiTicketDuotone size={30} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400]
-            ${getLinkStyle(9).color}
+            ${getLinkStyle(8).color}
 
             }`}
           >
@@ -181,12 +163,12 @@ const DashboardSideBar = ({ active }) => {
         <Link
           to="/dashboard-refunds"
           className="w-full flex items-center"
-          style={getLinkStyle(10)}
+          style={getLinkStyle(9)}
         >
           <FcUndo size={30} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400]
-            ${getLinkStyle(10).color}
+            ${getLinkStyle(9).color}
 
             }`}
           >
@@ -199,12 +181,12 @@ const DashboardSideBar = ({ active }) => {
         <Link
           to="/dashboard-settings"
           className="w-full flex items-center"
-          style={getLinkStyle(11)}
+          style={getLinkStyle(10)}
         >
           <FcEngineering size={30} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400]
-            ${getLinkStyle(11).color}
+            ${getLinkStyle(10).color}
 
             }`}
           >
@@ -214,11 +196,11 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4" style={getLinkStyle(12)}>
-        <Link to="/dashboard-inbox" className="w-full flex items-center">
+        <Link to="/dashboard-inbox" className="w-full flex items-center" style={getLinkStyle(11)}>
           <FcVoicePresentation size={30} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400]
-            ${getLinkStyle(12).color}
+            ${getLinkStyle(11).color}
 
             }`}
           >
