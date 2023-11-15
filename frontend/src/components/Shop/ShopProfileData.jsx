@@ -36,7 +36,7 @@ const ShopProfileData = ({ isOwner }) => {
           {isOwner && (
             <div>
               <Link to="/dashboard">
-                <div className="bg-black hover:bg-blue-400 text-white font-bold py-3 px-8 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                <div className="bg-black hover:bg-blue-400 text-white font-bold py-2 px-8 border-b-4 border-blue-700 hover:border-blue-500 rounded !w-max !h-[45px]">
                   <span>Go to Dashboard</span>
                 </div>
               </Link>
